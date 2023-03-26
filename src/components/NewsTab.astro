@@ -1,0 +1,108 @@
+---
+import { newsTab } from '../common/constants.ts'
+---
+
+<ul class="news-tab clearfix active-1" data-aos="fade-right">
+  {
+    newsTab.map((tab, i) => (
+      <li
+        data-index={tab.index}
+        data-aos="fade-right"
+        data-aos-easing="ease"
+        data-aos-delay={(i + 1) * 300}
+        class:list={['fl', 'news-tab-item']}
+      >
+        <div class="clearfix">
+          <div class="fl">
+            <p class="day">{tab.day}</p>
+            <p class="time">{tab.date}</p>
+          </div>
+          <div class="info fl">
+            <h3 class="ellipsis">{tab.title}</h3>
+            <h4 class="ellipsis-row-2">{tab.label}</h4>
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+<script>
+  $('.news-tab li').on('click', function (e) {
+    const index = $(this).attr('data-index')
+    $('.news-tab')
+      .removeClass(['active-1', 'active-2', 'active-3'])
+      .addClass(`active-${index}`)
+  })
+</script>
+<style>
+  .news-tab {
+    margin: 3vw 5.2vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid #cbcbcb;
+  }
+
+  .news-tab::after {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: -2px;
+    content: '';
+    background-color: #d1261f;
+    width: 33.3%;
+    height: 4px;
+    transition: left ease-in-out 0.4s;
+  }
+
+  .news-tab.active-1::after {
+    left: 0;
+  }
+
+  .news-tab.active-2::after {
+    left: 33.3%;
+  }
+
+  .news-tab.active-3::after {
+    left: 66.6%;
+  }
+
+  .news-tab-item {
+    width: 33.3%;
+    padding-bottom: 30px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .news-tab-item > div {
+    display: inline-block;
+  }
+
+  .day {
+    font-size: 60px;
+    line-height: 50px;
+  }
+
+  .time {
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .info {
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .info h3 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .info h4 {
+    font-size: 36px;
+    line-height: 80px;
+  }
+</style>

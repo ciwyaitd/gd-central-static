@@ -1,0 +1,36 @@
+---
+export interface Props {
+  number: number
+  unit: string
+  desc: string
+}
+const { number, unit, desc } = Astro.props
+---
+
+<div class="overview-item">
+  <p>
+    <span class="number">{number}</span><span class="unit">{unit}</span>
+  </p>
+  <p class="desc">{desc}</p>
+</div>
+<style>
+  .overview-item {
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+
+  .number {
+    font-size: 70px;
+    font-weight: bold;
+  }
+
+  .unit {
+    font-size: 20px;
+  }
+
+  .desc {
+    margin-top: 5px;
+    font-size: 24px;
+  }
+</style>

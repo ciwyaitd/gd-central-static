@@ -1,0 +1,98 @@
+---
+import { nav } from '../common/constants.ts'
+export interface Props {
+  active: number
+}
+const { active } = Astro.props
+---
+
+<header class="header clearfix">
+  <div class="fl">
+    <img class="logo" src="images/logo.png" alt="logo" />
+  </div>
+  <ul class="nav fr clearfix">
+    {
+      nav.map((item) => (
+        <li
+          class:list={[active === item.index ? 'active' : '', 'fl', 'nav-item']}
+        >
+          {item.child ? (
+            <>
+              <div>{item.label}</div>
+              <ul class="nav-child">
+                {item.child.map((v) => (
+                  <li class="nav-child-item">
+                    <a href={item.link}>{v.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a href={item.link}>{item.label}</a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</header>
+<style>
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 82px;
+    margin: 3vw 5.2vw;
+    border-bottom: 2px solid #cbcbcb;
+  }
+
+  .logo {
+    margin-top: -25px;
+  }
+
+  .nav {
+    height: 100%;
+  }
+
+  .nav-item {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+
+  .nav-item > a,
+  .nav-item > div {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 78px;
+    padding: 0 20px;
+  }
+
+  .nav-item.active {
+    border-bottom: 4px solid #d1261f;
+  }
+
+  .nav-item:hover .nav-child {
+    display: block;
+  }
+
+  .nav-child {
+    display: none;
+    margin-top: 4px;
+    background-color: rgba(209, 38, 31, 0.8);
+    text-align: center;
+  }
+
+  .nav-child-item a {
+    display: block;
+    font-size: 22px;
+    font-weight: normal;
+    color: #fff;
+    line-height: 58px;
+  }
+
+  .nav-child-item a:hover {
+    background-color: #d1261f;
+  }
+</style>
