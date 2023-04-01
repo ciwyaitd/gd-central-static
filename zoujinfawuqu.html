@@ -13,8 +13,8 @@
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="/gd-central-static/static/baiyuntouzijituan.3ecb44cd.css" />
-<link rel="stylesheet" href="/gd-central-static/static/index.2a335482.css" />
-<link rel="stylesheet" href="/gd-central-static/static/zoujinfawuqu.0d8292ad.css" /></head>
+<link rel="stylesheet" href="/gd-central-static/static/fawuqushijie.2a335482.css" />
+<link rel="stylesheet" href="/gd-central-static/static/zoujinfawuqu.40bc7200.css" /></head>
   <body>
     <main class="pages-swiper swiper astro-GVR73SGH">
     <div class="swiper-wrapper astro-GVR73SGH">
@@ -33,9 +33,9 @@
                   </li><li class="nav-child-item astro-3EF6KSR2">
                     <a href="./zoujinfawuqu.html" class="astro-3EF6KSR2">走进法务区</a>
                   </li><li class="nav-child-item astro-3EF6KSR2">
-                    <a href="" class="astro-3EF6KSR2">法务区视界</a>
+                    <a href="./fawuqushijie.html" class="astro-3EF6KSR2">法务区视界</a>
                   </li><li class="nav-child-item astro-3EF6KSR2">
-                    <a href="" class="astro-3EF6KSR2">白云投资集团</a>
+                    <a href="./baiyuntouzijituan.html" class="astro-3EF6KSR2">白云投资集团</a>
                   </li>
               </ul>
         </li><li class="fl nav-item astro-3EF6KSR2">
@@ -287,6 +287,22 @@
             </div>
           </div>
         </div>
+        <div class="controls astro-GVR73SGH">
+          <div class="control-list astro-GVR73SGH">
+            <div class="control-item astro-GVR73SGH">
+              <img src="images/zoujinfawuqu/icon_1.png" alt="train" class="astro-GVR73SGH">
+            </div>
+            <div class="control-item astro-GVR73SGH">
+              <img src="images/zoujinfawuqu/icon_2.png" alt="train" class="astro-GVR73SGH">
+            </div>
+            <div class="control-item astro-GVR73SGH">
+              <img src="images/zoujinfawuqu/icon_3.png" alt="train" class="astro-GVR73SGH">
+            </div>
+            <div class="control-item astro-GVR73SGH">
+              <img src="images/zoujinfawuqu/icon_4.png" alt="train" class="astro-GVR73SGH">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="swiper-slide clearfix astro-GVR73SGH">
         <div class="fl left astro-GVR73SGH">
@@ -329,11 +345,16 @@
           </div>
         </div>
         <div class="fr right astro-GVR73SGH">
+          <img src="images/zoujinfawuqu/information.png" alt="information" class="astro-GVR73SGH">
           <h2 class="astro-GVR73SGH">湾区资讯</h2>
           <p class="astro-GVR73SGH">
             要坚持以人民为中心，绘好城市民生画。要落实以人民为中心的执政理念，“衣食住行、生老病死、安居乐业”
             这12个字就说群众民生。
           </p>
+          <div class="qrcode-box astro-GVR73SGH">
+            <img src="images/zoujinfawuqu/qrcode.png" alt="qrcode" class="astro-GVR73SGH">
+            <p class="astro-GVR73SGH">关注公众号获取更多资讯</p>
+          </div>
         </div>
       </div>
       <div class="swiper-slide footer astro-GVR73SGH">
@@ -382,7 +403,7 @@
     slidesPerView: 'auto',
     spaceBetween: 0,
     parallax: false,
-    initialSlide: 2,
+    initialSlide: 1,
   })
   var bannerSwiper = new Swiper('.banner-swiper', {
     effect: 'slide',
@@ -431,7 +452,7 @@
     yearSwiper.slideNext()
     bannerSwiper.slideNext()
   })
-  var jttxSwiper = new Swiper('.jttx-slide', {
+  var jttxSwiper = new Swiper('.jttx-swiper', {
     direction: 'vertical',
     effect: 'slide',
     speed: 1000,
@@ -447,5 +468,10 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+  })
+
+  $('.control-item').on('click', function () {
+    var index = $('.control-item').index($(this))
+    jttxSwiper.slideTo(index)
   })
 </script>
